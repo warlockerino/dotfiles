@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import requests
+try:
+    r = requests.get('https://api.kraken.com/0/public/Ticker?pair=ETHEUR');
+    ticker = r.json()
+    print('%.f' % float(ticker['result']['XETHZEUR']['c'][0]))
+except requests.ConnectionError:
+    print("---")
