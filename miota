@@ -5,6 +5,6 @@ try:
     r = requests.get('https://api.coinmarketcap.com/v1/ticker/iota/?convert=EUR');
 
     ticker = r.json()
-    print('%.2f' % float(ticker[0]['price_eur']))
+    print('%.2f' % float(ticker[0]['price_usd']))
 except requests.ConnectionError:
     print("---")
