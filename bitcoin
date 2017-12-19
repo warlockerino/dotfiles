@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 import requests
-
 try:
-    r = requests.get('https://api.kraken.com/0/public/Ticker?pair=BTCEUR');
+    r = requests.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=USD');
+
     ticker = r.json()
-    print('%.f' % float(ticker['result']['XXBTZEUR']['c'][0]))
+    print('%.1f K' % (float(ticker[0]['price_usd'])/1000.0))
 except requests.ConnectionError:
     print("---")

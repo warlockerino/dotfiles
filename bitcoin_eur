@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+import requests
+try:
+    r = requests.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=EUR');
+
+    ticker = r.json()
+    print('%.1f K' % (float(ticker[0]['price_eur'])/1000.0))
+except requests.ConnectionError:
+    print("---")
